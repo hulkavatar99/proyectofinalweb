@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar formulario</title>
+     <!-- Archivo CSS Bootstrap 5 -->
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
+     
+     <link rel="icon" href="favicon.ico">
+</head>
+<body>
+<main>
+    
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+ 
+           
+          <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4"></span>
+          </a>
+ 
+           
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="cuenta.html" class="nav-link" aria-current="page">inicio</a></li><br><br>
+            
+            <li class="nav-item"><a href="verificadorcuentas.html" class="nav-link active">validacion</a></li><br><br>
+            <li class="nav-item"><a href="json.html" class="nav-link">json</a></li><br><br>          
+          </ul>
+ 
+        </header>
+      </div>
+
+</head>
+<body  onload="refrescaTodo()" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" >
+  <h3> completar formulario </h3>
+</select><br>
+Nombre: <input type="text"  id="nombre"><br>
+Telefono: <input type="text" id="telefono" ><br>
+N control: <input type="text" id="numcontrol" ><br>
+		<button class="btn btn-primary" onclick="guardar()" >GUARDAR</button> 
+
+
+
+
+
+
+<script type="text/javascript">
+	
+	   // por defecto almacenamiento local
+     let storage = localStorage;
+	
+	function guardar() {
+	 	let nombre = document.getElementById('nombre').value;
+	 	let telefono = document.getElementById('telefono').value;
+     let numcontrol = document.getElementById('numcontrol').value;
+	 	if (nombre == '' || telefono == ''  || numcontrol == '') {
+	 		alert('LLenar todos los datos solicitados');
+	 		return;
+	 	}
+	 	storage.setItem(nombre, telefono, numcontrol);
+	 	enviaM('los registro de  ' + nombre + '=' + telefono +'=' + numcontrol + ' almacenado localmente ');
+	}
+	
+
+
+	
+
+
+
+	
+
+	
+	// función para almacenamiento 
+	function eventoAlmacenamiento(e) {	
+		refrescaTodo();
+	}
+	
+	//listener que funciona cuando se ejecuta el evento de almacenamiento
+	window.addEventListener("storage", eventoAlmacenamiento, false);
+
+</script>
+
+
+    
+</main>
+</body>
+</html>
